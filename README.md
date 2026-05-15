@@ -56,25 +56,36 @@ Room Database is used for local offline storage of:
 ## Screenshots
 
 ### Home Screen
-![Home Screen](screenshots/home.png)
+<img width="720" height="1600" alt="image" src="https://github.com/user-attachments/assets/9b7e5661-eaeb-4885-afd3-a18c15284e97" />
 
-### Digital Bookshelf
-![Digital Bookshelf](screenshots/bookshelf.png)
+
+<img width="720" height="1600" alt="image" src="https://github.com/user-attachments/assets/9c2c8c0a-39f7-4560-aff6-a1a19a20f4eb" />
+
 
 ### QR Code Borrowing
-![QR Borrowing](screenshots/qr.png)
+<img width="720" height="1600" alt="image" src="https://github.com/user-attachments/assets/696d7240-97d1-4780-80e5-a5e60a3b4d06" />
+
 
 ### Student Profile
-![Student Profile](screenshots/profile.png)
+<img width="720" height="1600" alt="image" src="https://github.com/user-attachments/assets/d61506d9-a86e-411a-957e-29e6dcf53faa" />
+
 
 ### Leaderboard
-![Leaderboard](screenshots/leaderboard.png)
+<img width="720" height="1600" alt="image" src="https://github.com/user-attachments/assets/e61b5b6b-c6e8-4181-8a3c-555cf58d51a5" />
 
 ### Admin Panel
-![Admin Panel](screenshots/admin.png)
+<img width="720" height="1600" alt="image" src="https://github.com/user-attachments/assets/c46e57bd-dca6-489e-a05d-0a88926a2728" />
+
 
 ### Add Book Screen
-![Add Book Screen](screenshots/addbook.png)
+<img width="720" height="1600" alt="image" src="https://github.com/user-attachments/assets/81eb5383-2f66-473b-ab3b-c058d34b82ad" />
+
+### Search Screen 
+<img width="720" height="1600" alt="image" src="https://github.com/user-attachments/assets/e46acf89-92c2-4769-918b-a27a50fa05ff" />
+
+### Book Details 
+<img width="720" height="1600" alt="image" src="https://github.com/user-attachments/assets/30c54ddb-f500-49f4-ac7a-9164fbe9efdc" />
+
 
 ## 🔮 Future Enhancements
 
