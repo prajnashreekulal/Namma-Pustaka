@@ -1,5 +1,4 @@
 package com.nammapustaka.ui.screens
-
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -118,6 +117,12 @@ fun ShelfScreen(viewModel: BookViewModel) {
                         Text("Status", fontWeight = FontWeight.Bold, color = MaterialTheme.colorScheme.primary)
                         Text(selectedBook?.status ?: "Unknown", color = if (selectedBook?.status == "Available") Color(0xFF4CAF50) else Color.Red, fontWeight = FontWeight.Bold)
                     }
+                }
+                Spacer(modifier = Modifier.height(16.dp))
+                Column {
+                    Text("Summary", fontWeight = FontWeight.Bold, color = MaterialTheme.colorScheme.primary)
+                    Spacer(modifier = Modifier.height(4.dp))
+                    Text(selectedBook?.summary ?: "No summary available.", style = MaterialTheme.typography.bodyLarge, color = MaterialTheme.colorScheme.onSurface)
                 }
             }
         }

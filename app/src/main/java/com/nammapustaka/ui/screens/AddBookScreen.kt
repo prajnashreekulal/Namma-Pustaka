@@ -16,6 +16,8 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import kotlinx.coroutines.delay
 import androidx.compose.ui.layout.ContentScale
+import kotlinx.coroutines.launch
+import androidx.compose.ui.graphics.Color
 import coil.compose.AsyncImage
 import java.io.File
 import java.io.FileOutputStream
@@ -29,9 +31,12 @@ fun AddBookScreen(viewModel: BookViewModel) {
     var category by remember { mutableStateOf("") }
     var shelfLocation by remember { mutableStateOf("") }
     var isbn by remember { mutableStateOf("") }
+    var summary by remember { mutableStateOf("") }
     var imageUri by remember { mutableStateOf<String?>(null) }
     
     var showSuccess by remember { mutableStateOf(false) }
+    var isFetching by remember { mutableStateOf(false) }
+    val coroutineScope = rememberCoroutineScope()
 
     val context = LocalContext.current
     val cameraLauncher = rememberLauncherForActivityResult(ActivityResultContracts.TakePicturePreview()) { bitmap ->
@@ -66,6 +71,8 @@ fun AddBookScreen(viewModel: BookViewModel) {
         )
         Spacer(modifier = Modifier.height(8.dp))
 
+        // Fetch Book Details button temporarily hidden for presentation stability
+
         OutlinedTextField(
             value = author,
             onValueChange = { author = it },
@@ -95,6 +102,16 @@ fun AddBookScreen(viewModel: BookViewModel) {
             onValueChange = { isbn = it },
             label = { Text("ISBN (Optional)") },
             modifier = Modifier.fillMaxWidth()
+        )
+        Spacer(modifier = Modifier.height(8.dp))
+
+        OutlinedTextField(
+            value = summary,
+            onValueChange = { summary = it },
+            label = { Text("Book Summary (Kannada/English)") },
+            modifier = Modifier.fillMaxWidth(),
+            minLines = 3,
+            maxLines = 5
         )
         Spacer(modifier = Modifier.height(16.dp))
 
@@ -129,7 +146,8 @@ fun AddBookScreen(viewModel: BookViewModel) {
                         borrowerId = null,
                         isbn = isbn.ifBlank { "N/A" },
                         shelfLocation = shelfLocation.ifBlank { "Unassigned" },
-                        imageUri = imageUri
+                        imageUri = imageUri,
+                        summary = summary.ifBlank { "No summary available." }
                     )
                     viewModel.insertBook(newBook)
                     title = ""
@@ -137,6 +155,7 @@ fun AddBookScreen(viewModel: BookViewModel) {
                     category = ""
                     shelfLocation = ""
                     isbn = ""
+                    summary = ""
                     imageUri = null
                     showSuccess = true
                     focusManager.clearFocus()

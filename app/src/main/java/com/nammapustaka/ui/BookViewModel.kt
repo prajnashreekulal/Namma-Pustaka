@@ -17,6 +17,8 @@ import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
+import com.nammapustaka.network.RetrofitClient
+import com.nammapustaka.network.VolumeInfo
 
 @OptIn(ExperimentalCoroutinesApi::class)
 class BookViewModel(private val bookDao: BookDao) : ViewModel() {
@@ -81,6 +83,22 @@ class BookViewModel(private val bookDao: BookDao) : ViewModel() {
     fun insertBook(book: Book) {
         viewModelScope.launch {
             bookDao.insertBook(book)
+        }
+    }
+
+    suspend fun fetchBookDetails(query: String): VolumeInfo? {
+        if (query.isBlank()) return null
+        return try {
+            val response = RetrofitClient.apiService.searchBooks(query)
+            if (response.isSuccessful) {
+                response.body()?.items?.firstOrNull()?.volumeInfo
+            } else {
+                Log.e("BookViewModel", "API Error: ${response.code()}")
+                null
+            }
+        } catch (e: Exception) {
+            Log.e("BookViewModel", "Network Exception: ${e.message}")
+            null
         }
     }
 

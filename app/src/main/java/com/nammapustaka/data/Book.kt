@@ -16,5 +16,6 @@ data class Book(
     val coverImageUrl: String? = null,
     val isbn: String? = null,
     val shelfLocation: String? = null,
-    val imageUri: String? = null
+    val imageUri: String? = null,
+    val summary: String = "No summary available."
 )
