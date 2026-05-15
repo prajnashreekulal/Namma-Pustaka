@@ -53,6 +53,29 @@ Room Database is used for local offline storage of:
 
 ---
 
+## Screenshots
+
+### Home Screen
+![Home Screen](screenshots/home.png)
+
+### Digital Bookshelf
+![Digital Bookshelf](screenshots/bookshelf.png)
+
+### QR Code Borrowing
+![QR Borrowing](screenshots/qr.png)
+
+### Student Profile
+![Student Profile](screenshots/profile.png)
+
+### Leaderboard
+![Leaderboard](screenshots/leaderboard.png)
+
+### Admin Panel
+![Admin Panel](screenshots/admin.png)
+
+### Add Book Screen
+![Add Book Screen](screenshots/addbook.png)
+
 ## 🔮 Future Enhancements
 
 - Cloud Synchronization
